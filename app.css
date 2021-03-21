@@ -68,6 +68,7 @@ a {
     text-decoration: none;
     padding: 1.5rem;
     width: 100%;
+    transition: color 0.25s ease;
 }
 
 button {
@@ -343,8 +344,13 @@ header {
 #desktopNav a {
     font-size: 1rem;
     color: hsl(0, 0%, 100%);
+    padding: 0;
+    margin: 0 1.5rem;
 }
 
+#desktopNav a:hover {
+    color: hsl(176, 50%, 47%);
+}
 
 /* Bookmark Button */
 
