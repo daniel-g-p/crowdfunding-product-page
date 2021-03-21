@@ -92,7 +92,7 @@ const updateStock = () => {
                 document.querySelectorAll(".option.inactive button").forEach(b => b.innerHTML = "Out of Stock");
             });
         };
-    };
+    };;
 };
 
 
@@ -182,12 +182,12 @@ continueButtons.forEach(b => {
             input.parentElement.parentElement.classList.add("error");
         } else {
             input.parentElement.parentElement.classList.remove("error");
+            updateStock();
             resetModal();
             overlay.classList.toggle("inactive");
             modal.classList.toggle("active");
             setTimeout(() => {
                 confirmation.classList.toggle("active");
-                updateStock();
             }, 1000);
         };
     });
