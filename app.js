@@ -81,7 +81,7 @@ const updateStock = () => {
     const selector = document.querySelector(".selection.active .select input").getAttribute("value");;
     const options = document.querySelectorAll(`.option.${selector}`);
     const stock = document.querySelectorAll(`.option.${selector} h6`)
-    if (options) {
+    if (selector !== "noReward") {
         const newStock = Number(stock[0].innerHTML) - 1;
         stock.forEach(s => {
             s.innerHTML = newStock.toString();
