@@ -1,0 +1,829 @@
+/* General Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font: 400 16px/1 'Commissioner', sans-serif;
+    color: hsl(0, 0%, 48%);
+}
+
+body {
+    position: relative;
+    background-color: hsl(0, 0%, 95%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+    font-weight: 700;
+    color: hsl(0, 0%, 0%);
+}
+
+h1 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    transition: color 0.25s ease;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: hsl(176, 50%, 47%);
+    margin-bottom: 1.25rem;
+}
+
+h6 {
+    font-size: 2.25rem;
+    margin-right: 0.75rem;
+}
+
+p {
+    line-height: 2;
+}
+
+a {
+    font: 500 1.5rem/1 'Commissioner', sans-serif;
+    color: hsl(0, 0%, 0%);
+    text-decoration: none;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+button {
+    font: 500 16px/1 'Commissioner', sans-serif;
+    padding: 1.25rem 1rem;
+    border: none;
+    border-radius: 1.75rem;
+    outline: none;
+    background-color: hsl(176, 50%, 47%);
+    color: hsl(0, 0%, 100%);
+    transition: background-color 0.25s ease;
+}
+
+button:hover {
+    background-color: hsl(176, 72%, 28%);
+    cursor: pointer;
+}
+
+section {
+    width: 90%;
+    margin: 1.5rem 5%;
+    background-color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 90%);
+    border-radius: 0.5rem;
+    padding: 3rem 2rem;
+}
+
+
+/* Mobile Layout */
+
+main.inactive {
+    pointer-events: none;
+}
+
+header {
+    width: 100%;
+    padding: 3rem 7.5% 21rem;
+    background-image: url("image-hero-mobile.jpg");
+    background-size: cover;
+    box-shadow: inset 0 0 15rem rgba(0, 0, 0, 0.5);
+}
+
+.menu {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+
+#logo.inactive {
+    opacity: 0;
+}
+
+#intro {
+    margin-top: -6rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+#intro img {
+    position: absolute;
+    top: -28px;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.buttonRow button {
+    margin-right: 0.75rem;
+    flex-grow: 1;
+}
+
+#numbers {
+    scroll-margin-top: 1.5rem;
+}
+
+#numbers .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#numbers.loading .container {
+    opacity: 0;
+}
+
+.stat {
+    width: 100%;
+}
+
+.stat:nth-of-type(2) {
+    border-top: 1px solid hsl(0, 0%, 90%);
+    border-bottom: 1px solid hsl(0, 0%, 90%);
+    padding: 1.5rem 0;
+    margin: 1.5rem 0;
+}
+
+#progressBar {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1rem;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+#progressBar div {
+    position: absolute;
+    left: 0;
+    display: block;
+    height: 1rem;
+    background-color: hsl(176, 50%, 47%);
+    border-radius: 0.5rem;
+}
+
+#about {
+    margin-bottom: 3rem;
+}
+
+#about p {
+    margin-bottom: 1rem;
+}
+
+#about button {
+    padding: 1.25rem 2rem;
+}
+
+.option {
+    padding: 2rem 1.5rem;
+    border: 1px solid hsl(0, 0%, 90%);
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+}
+
+.stock {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.option.inactive {
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+}
+
+
+/* Mobile Menu */
+
+#overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#overlay.inactive {
+    pointer-events: none;
+}
+
+#mobileNav {
+    position: absolute;
+    top: 8rem;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 5%;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    pointer-events: none;
+    transition-property: max-height, opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+#mobileNav a:nth-of-type(2) {
+    border-top: 1px solid hsl(0, 0%, 95%);
+    border-bottom: 1px solid hsl(0, 0%, 95%);
+}
+
+#mobileNav.active {
+    pointer-events: all;
+}
+
+#closeNav {
+    position: absolute;
+    top: 2px;
+    right: 1px;
+}
+
+.navToggle {
+    opacity: 1;
+    transform: scale(0);
+    pointer-events: none;
+    transition-property: transform, opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    z-index: 2;
+}
+
+.navToggle.active {
+    transform: scale(1);
+    pointer-events: all;
+}
+
+.navToggle.inactive {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#mobileNav a {
+    background-color: hsl(0, 0%, 100%);
+    transition: background-color 0.25s ease;
+}
+
+#mobileNav a:focus {
+    background-color: hsl(0, 0%, 95%);
+}
+
+
+/* Desktop Menu */
+
+#desktopNav {
+    display: none;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#desktopNav.inactive {
+    pointer-events: none;
+    opacity: 0;
+}
+
+#desktopNav a {
+    font-size: 1rem;
+    color: hsl(0, 0%, 100%);
+}
+
+
+/* Bookmark Button */
+
+#bookmark {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    width: 56px;
+    border-radius: 28px;
+    background-color: hsl(0, 0%, 95%);
+}
+
+#bookmark svg {
+    position: relative;
+    width: 56px;
+    z-index: 1;
+}
+
+#bookmark circle {
+    transition: fill 0.25s ease;
+}
+
+#bookmark p {
+    font: 500 16px/1 'Commissioner', sans-serif;
+    color: hsl(0, 0%, 50%);
+    display: none;
+    width: 124px;
+    transition: color 0.25s ease;
+}
+
+#bookmark:hover {
+    cursor: pointer;
+}
+
+#bookmark:hover circle {
+    fill: hsl(0, 0%, 25%);
+}
+
+#bookmark:hover p {
+    color: hsl(0, 0%, 65%);
+}
+
+#bookmark.active circle {
+    fill: hsl(176, 50%, 47%);
+}
+
+#bookmark.active p {
+    color: hsl(176, 50%, 47%);
+}
+
+#bookmark.active:hover circle {
+    fill: hsl(176, 72%, 28%);
+}
+
+#bookmark.active:hover p {
+    color: hsl(176, 72%, 28%);
+}
+
+
+/* Selection Modal */
+
+#modal {
+    position: fixed;
+    top: 10vh;
+    left: 5%;
+    height: 80vh;
+    margin: 0;
+    padding: 3rem 1.5rem;
+    overflow-y: scroll;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    transition-property: opacity, transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    z-index: 3;
+}
+
+#modal.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+#modal::-webkit-scrollbar {
+    display: none;
+}
+
+#closeModal {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    scroll-margin-top: 1.5rem;
+}
+
+#closeModal:hover {
+    cursor: pointer;
+}
+
+#closeModal path {
+    transition: opacity 0.25s ease;
+}
+
+#closeModal:hover path {
+    opacity: 1;
+}
+
+form {
+    margin: 2rem 0;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.selection {
+    scroll-margin-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    transition: border-color 0.25s ease;
+}
+
+.selection.active {
+    border-color: hsl(176, 50%, 47%);
+}
+
+.selection.active h4 {
+    color: hsl(176, 50%, 47%);
+}
+
+.selection.active .radioCircle {
+    border-color: hsl(176, 50%, 47%);
+}
+
+.select {
+    margin-bottom: 1rem;
+}
+
+.select label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.select label:hover {
+    cursor: pointer;
+}
+
+.select label:hover h4 {
+    color: hsl(176, 50%, 47%);
+}
+
+.select label:hover .radioCircle {
+    border-color: hsl(176, 50%, 47%);
+}
+
+.select h4,
+.select h5 {
+    margin: 0;
+    padding: 0.25rem 0;
+    line-height: 1.5;
+}
+
+.radioCircle {
+    position: relative;
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid hsl(0, 0%, 90%);
+    margin-right: 1rem;
+    flex-shrink: 0;
+    transition: border-color 0.25s ease;
+}
+
+.radioCircle::after {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: hsl(176, 50%, 47%);
+    transform: scale(0);
+    transition: transform 0.25s ease;
+}
+
+.selection.active .radioCircle::after {
+    transform: scale(1);
+}
+
+.selection .stock {
+    margin: 1rem 0 0;
+}
+
+.desktopStock {
+    display: none;
+}
+
+.selection h6 {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+.pledge {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 1px solid hsl(0, 0%, 90%);
+    margin-top: 1.75rem;
+    overflow-y: hidden;
+    opacity: 0;
+    transition-property: max-height, opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.selection.active .pledge {
+    opacity: 1;
+}
+
+.pledge p {
+    margin-top: 1.25rem
+}
+
+.amount {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.amount div {
+    width: 50%;
+    flex-grow: 1;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.amount div::before {
+    position: absolute;
+    top: 20px;
+    left: 1.25rem;
+    content: "$";
+    font: 500 1rem/1 'Commissioner', sans-serif;
+    color: hsl(0, 0%, 50%);
+}
+
+.amount input {
+    font: 500 1rem/1 'Commissioner', sans-serif;
+    color: hsl(0, 0%, 0%);
+    width: 100%;
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+    outline: none;
+    border-radius: 2rem;
+    border: 1px solid hsl(0, 0%, 90%);
+    height: 56px;
+    transition: border-color 0.25s ease;
+}
+
+.amount input:focus {
+    border-color: hsl(0, 0%, 0%);
+}
+
+.amount input::placeholder {
+    color: hsl(0, 0%, 50%);
+}
+
+.amount button {
+    flex-grow: 0;
+    margin-bottom: 1rem;
+}
+
+
+/* Form Validation */
+
+.amount.error input {
+    border-color: hsl(356, 100%, 66%);
+}
+
+.amount::after {
+    display: block;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    content: "Please enter a valid pledge";
+    color: hsl(356, 100%, 66%);
+    font-size: 0.75rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.amount.error::after {
+    opacity: 1;
+}
+
+
+/* Confirmation Screen */
+
+#confirmation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 3;
+}
+
+#confirmation.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#confirmation section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.5s ease;
+}
+
+#confirmation.active section {
+    transform: scale(1);
+}
+
+#confirmation img {
+    margin-bottom: 1.5rem;
+}
+
+#confirmation h3 {
+    text-align: center;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+
+#confirmation p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#confirmation button {
+    padding: 1.25rem 2rem;
+}
+
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+    section {
+        width: 700px;
+        margin: 1.5rem calc(50% - 350px);
+    }
+    .navToggle {
+        display: none;
+    }
+    #desktopNav {
+        display: block;
+    }
+    header {
+        background-image: url("image-hero-desktop.jpg");
+        background-position: center;
+        box-shadow: inset 0 0 15rem rgb(0, 0, 0);
+        ;
+    }
+    #intro {
+        padding: 3rem;
+    }
+    #intro button {
+        flex-grow: 0;
+        width: 180px;
+    }
+    #bookmark {
+        width: 180px;
+    }
+    #bookmark p {
+        display: block;
+    }
+    .buttonRow {
+        justify-content: space-between;
+    }
+    #stats {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    .stat:nth-of-type(2) {
+        border: none;
+        border-left: 1px solid hsl(0, 0%, 90%);
+        border-right: 1px solid hsl(0, 0%, 90%);
+        padding: 0 2.5rem;
+        margin: 0 2.5rem;
+    }
+    #stats h2,
+    #stats p {
+        text-align: left;
+    }
+    .optionTitle {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .stockRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #about .stock {
+        margin: 0;
+    }
+    #modal {
+        left: calc(50% - 350px);
+    }
+    .mobileStock {
+        display: none;
+    }
+    .selection .desktopStock {
+        display: flex;
+        margin-top: 0;
+    }
+    .select {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .select .details {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .select h4 {
+        margin-right: 1.5rem;
+    }
+    .pledge {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .pledge p {
+        margin-top: 2.75rem;
+    }
+    .amount {
+        margin: 2rem 0;
+    }
+    .amount div,
+    .amount button {
+        margin-bottom: 0;
+    }
+    #confirmation section {
+        width: 480px;
+    }
+}
