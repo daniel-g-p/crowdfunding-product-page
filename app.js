@@ -203,7 +203,7 @@ finalizeButton.addEventListener("click", () => {
     logo.classList.toggle("inactive");
     openNav.classList.toggle("inactive");
     numberSection.classList.toggle("loading");
-    const newTotal = parseFloat(totalRaised.innerHTML.replace(",", "")) + pledge;
+    const newTotal = Math.round(parseFloat(totalRaised.innerHTML.replace(",", "")) + pledge);
     let totalString = newTotal.toString();
     const newBackers = (parseFloat(totalBackers.innerHTML.replace(",", "")) + 1).toString();
     let backersString = newBackers.toString();
